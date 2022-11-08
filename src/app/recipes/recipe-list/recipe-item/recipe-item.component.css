@@ -1,0 +1,16 @@
+.recipeItem {
+cursor: pointer;
+background-color: darkgray;
+border-radius: 5px;
+padding: 10px;
+margin-bottom: 10px;
+border: solid gainsboro 2px;
+}
+.recipeItem:hover {
+background-color: gainsboro;
+border: solid darkgray 2px;
+}
+.active{
+  background-color: gainsboro;
+border: solid darkgray 2px;
+}

@@ -16,6 +16,22 @@ private recipes: Recipe[] = [
       new Ingredient('Meat', 1),
       new Ingredient('French Fries', 20)
     ]),
+    new Recipe(
+      'Big Repuplic',
+      'A super-tasty Schnitzel - just awesome!',
+      '../../assets/images/209358347_1195776210871468_764556662967386694_n.jpg',
+      [
+        new Ingredient('Meat', 1),
+        new Ingredient('French Fries', 20)
+      ]),
+      new Recipe(
+        'Fatet Shawrma',
+        'A super-tasty Schnitzel - just awesome!',
+        '../../assets/images/hqdefault.jpg',
+        [
+          new Ingredient('Meat', 1),
+          new Ingredient('French Fries', 20)
+        ]),
   new Recipe('Big Fat Burger',
     'What else you need to say?',
     'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
@@ -29,7 +45,9 @@ constructor(private slService: ShoppingService ){}
   getRecipes(){
     return this.recipes.slice();
   }
-
+ getRecipeId(index: number){
+  return this.recipes[index];
+ }
   addIngredientsToShoppingList(ingredients: Ingredient[]){
        this.slService.addIngredients(ingredients);
   }
