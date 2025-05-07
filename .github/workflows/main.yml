@@ -6,26 +6,36 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps: 
-      - name: checkout repo
+    steps:
+      - name: Checkout repo
         uses: actions/checkout@v4
-      - name: use node.js
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
-        with: 
+        with:
           node-version: '20.x'
-      - run: npm install --verbose
-      - run: npm run build --verbose
+
+      - name: Install dependencies
+        run: npm install --verbose
+
+      - name: Build Angular app
+        run: npm run build --verbose
+
   test:
     needs: build
     runs-on: ubuntu-latest
 
-    steps: 
-      - name: checkout repo
+    steps:
+      - name: Checkout repo
         uses: actions/checkout@v4
-      - name: use node.js
-        uses: actions/setup-node@v4
-        with: 
-          node-version: '20.x'
-      - run: npm install --verbose
-      - run: npm test
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm install --verbose
+
+      - name: Run tests
+        run: npm test
