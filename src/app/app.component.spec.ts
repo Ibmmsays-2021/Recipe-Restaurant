@@ -1,10 +1,15 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
-describe('AppComponent', () => {
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+describe('AppComponent', async () => {
 	let component: AppComponent;
 	let fixture: ComponentFixture<AppComponent>;
 
+	await TestBed.configureTestingModule({
+		declarations: [AppComponent],
+		schemas: [NO_ERRORS_SCHEMA] // This skips unknown elements like <app-header> or <router-outlet>
+	  }).compileComponents();
+	  
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			declarations: [AppComponent]
